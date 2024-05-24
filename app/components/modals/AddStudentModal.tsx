@@ -1,17 +1,14 @@
-import { Control, Controller, useForm } from "react-hook-form";
+import { Control, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import clsx from "clsx";
 
-import { addTeacherValidationSchema } from "@/app/features/teachers/utils/validationSchema";
-import { addTeacherData } from "@/app/features/teachers/api/addTeacherData";
-import { AddTeacherFormProps } from "@/app/features/teachers/types";
-import { GENDER_OPTIONS, TITLE } from "@/app/utils/constants";
+import { addStudentValidationSchema } from "@/app/features/student/utils/validationSchema";
+import { AddStudentData } from "@/app/features/student/api/addStudentData";
+import { AddStudentFormProps } from "@/app/features/student/types";
 import { InputFieldPhoneNo } from "../form/InputFieldPhoneNo";
 import { CancelButton } from "../elements/CancelButton";
 import { InputDateField } from "../form/InputDateField";
-import SelectDropDown from "../form/SelectDropDown";
-import { InputMoney } from "../form/InputMoney";
 import { InputField } from "../form/InputField";
 import { Button } from "../elements/Button";
 import { Loader } from "../elements/Loader";
@@ -23,7 +20,7 @@ interface AddStudentProps {
   modalOpen: boolean;
 }
 
-const AddStudent = ({
+const AddStudentModal = ({
   setModalOpen,
   modalOpen,
   modalRef,
@@ -38,14 +35,13 @@ const AddStudent = ({
     register,
     control,
     reset,
-  } = useForm<AddTeacherFormProps>({
-    resolver: yupResolver(addTeacherValidationSchema),
+  } = useForm<AddStudentFormProps>({
+    resolver: yupResolver(addStudentValidationSchema),
   });
 
-  const onSubmit = (data: AddTeacherFormProps) => {
-    addTeacherData({
+  const onSubmit = (data: AddStudentFormProps) => {
+    AddStudentData({
       ...data,
-      salary: data.salary || "",
       id: Math.random().toString(36).substr(2, 9),
     });
     reset();
@@ -72,9 +68,9 @@ const AddStudent = ({
         <div className="rounded  mx-auto bg-white-state">
           <div className="flex items-start justify-between border-b pb-4">
             <div>
-              <h3 className="font-bold text-[20px]">Add Teacher</h3>
+              <h3 className="font-bold text-[20px]">Add Atudent</h3>
               <p className="text-sm text-primary-200 mt-1">
-                Add Teacher details
+                Add Student details
               </p>
             </div>
             <CancelButton
@@ -111,56 +107,7 @@ const AddStudent = ({
                   />
                 </div>
               </div>
-              <div className="grid items-center grid-cols-2 min-h-[50px] border-b">
-                <p className="text-sm font-bold h-full flex px-6 items-center bg-white-100 border-r">
-                  Gender
-                </p>
-                <div className="p-2">
-                  <Controller
-                    control={control}
-                    rules={{ required: true }}
-                    name="gender"
-                    render={({
-                      field: { onChange, value },
-                      fieldState: { error },
-                    }) => {
-                      return (
-                        <SelectDropDown
-                          options={GENDER_OPTIONS}
-                          handleSelect={onChange}
-                          hasError={!!error}
-                          selectedOption={value}
-                        />
-                      );
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="grid items-center grid-cols-2 min-h-[50px] border-b">
-                <p className="text-sm font-bold h-full flex px-6 items-center bg-white-100 border-r">
-                  Title
-                </p>
-                <div className="p-2">
-                  <Controller
-                    control={control}
-                    rules={{ required: true }}
-                    name="title"
-                    render={({
-                      field: { onChange, value },
-                      fieldState: { error },
-                    }) => {
-                      return (
-                        <SelectDropDown
-                          options={TITLE}
-                          handleSelect={onChange}
-                          hasError={!!error}
-                          selectedOption={value}
-                        />
-                      );
-                    }}
-                  />
-                </div>
-              </div>
+
               <div className="grid items-center grid-cols-2 min-h-[50px] border-b">
                 <p className="text-sm font-bold h-full flex px-6 items-center bg-white-100 border-r">
                   NIN
@@ -191,26 +138,7 @@ const AddStudent = ({
                   </div>
                 </div>
               </div>
-              <div className="grid items-center grid-cols-2 min-h-[50px] border-b w-full">
-                <p className="text-sm font-bold h-full flex px-6 items-center bg-white-100 border-r">
-                  Salary
-                </p>
-                <div className="p-2">
-                  <Controller
-                    name="salary"
-                    control={control}
-                    render={({ field: { value: salaryValue, onChange } }) => (
-                      <InputMoney
-                        className=" px-4"
-                        value={salaryValue as string}
-                        hasError={errors.salary}
-                        onChange={onChange}
-                        errorMessage={undefined}
-                      />
-                    )}
-                  />
-                </div>
-              </div>
+
               <div className="grid items-center grid-cols-2 min-h-[50px] border-b">
                 <p className="text-sm font-bold h-full flex px-6 items-center bg-white-100 border-r">
                   Date of Birth
@@ -225,6 +153,9 @@ const AddStudent = ({
                     //maxDate={endDate || new Date()}
                     isRequired
                   />
+                  {errors.dob && (
+                    <p className="text-xs text-red-500 mt-1">{errors.dob.message}</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -238,4 +169,4 @@ const AddStudent = ({
   );
 };
 
-export default AddStudent;
+export default AddStudentModal;

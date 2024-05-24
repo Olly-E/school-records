@@ -10,7 +10,8 @@ const sizes = {
 
 const variants = {
   light: 'text-white',
-  primary: 'text-primary-100',
+  primary: 'text-primary',
+  dark: 'text-black',
 };
 
 export type LoaderProps = {
