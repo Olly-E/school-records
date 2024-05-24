@@ -1,29 +1,40 @@
 import React from "react";
 import clsx from "clsx";
+import { useComponentVisible } from "@/app/hooks/useComponentVisible";
 
 interface SelectDropDownProps {
-  isComponentVisible: boolean;
   options: { name: string; id: string }[];
   handleSelect: (data: { name: string; id: string }) => void;
   selectedOption: { name: string; id: string };
-  handleOpenSelect: () => void;
+  hasError?: boolean;
 }
 
 const SelectDropDown = ({
-  isComponentVisible,
   options,
   handleSelect,
   selectedOption,
-  handleOpenSelect,
+  hasError,
 }: SelectDropDownProps) => {
+  const {
+    ref,
+    isComponentVisible,
+    dropDownButtonRef,
+    setIsComponentVisible,
+    handleClickOnDropDownButton,
+  } = useComponentVisible();
+
   return (
-    <div>
+    <div ref={ref} className="relative h-full">
       <button
-        onClick={handleOpenSelect}
+        ref={dropDownButtonRef}
+        onClick={handleClickOnDropDownButton}
         type="button"
-        className="flex items-center w-full h-full justify-between"
+        className={clsx(
+          "flex items-center w-full h-[38px] rounded-[4px] justify-between px-4",
+          hasError ? "border border-red-500" : "border"
+        )}
       >
-        <p>{selectedOption.name || "Select Options"}</p>
+        <p className="text-sm">{selectedOption?.name || "Select Options"}</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="12"
@@ -32,7 +43,7 @@ const SelectDropDown = ({
           fill="none"
         >
           <path
-            stroke="#FF8A65"
+            stroke="#000000"
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeMiterlimit="10"
@@ -43,7 +54,7 @@ const SelectDropDown = ({
       </button>
       <div
         className={clsx(
-          " max-w-[228px] w-[228px] px-[21px] top-10 z-10 rounded-[5px] bg-white-200 absolute transition-all mt-2 overflow-hidden",
+          " max-w-[228px] w-[228px] px-[21px] top-10 z-10 rounded-[5px] bg-white absolute transition-all mt-2 ml-2 overflow-hidden",
           isComponentVisible
             ? "py-[26px] max-h-[290px] border overflow-y-auto"
             : "max-h-0 py-0 border-opacity-0 border-0"
@@ -53,7 +64,10 @@ const SelectDropDown = ({
           {options?.map((data, index) => {
             return (
               <button
-                onClick={() => handleSelect(data)}
+                onClick={() => {
+                  handleSelect(data);
+                  setIsComponentVisible(false);
+                }}
                 type="button"
                 key={data.id}
                 className={clsx(

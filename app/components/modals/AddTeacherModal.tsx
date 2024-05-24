@@ -17,17 +17,17 @@ import { Button } from "../elements/Button";
 import { Loader } from "../elements/Loader";
 import { Modal } from "../elements/Modal";
 
-interface AddStudentProps {
+interface AddTeacherModalProps {
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   modalRef: React.MutableRefObject<HTMLDivElement | null>;
   modalOpen: boolean;
 }
 
-const AddStudent = ({
+const AddTeacherModal = ({
   setModalOpen,
   modalOpen,
   modalRef,
-}: AddStudentProps) => {
+}: AddTeacherModalProps) => {
   const handleClose = () => {
     setModalOpen(false);
   };
@@ -238,4 +238,4 @@ const AddStudent = ({
   );
 };
 
-export default AddStudent;
+export default AddTeacherModal;

@@ -3,9 +3,9 @@ import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import React from "react";
 import clsx from "clsx";
 
-import { ErrorMessage } from "../ErrorMessage";
 import { Eye, EyeSlash } from "iconsax-react";
 import { Label } from "../elements/Label";
+import { ErrorMessage } from "../elements/ErrorMessage";
 
 interface InputFieldProps {
   type?: "text" | "number" | "email" | "password";
@@ -77,8 +77,8 @@ export const InputField: React.FC<InputFieldProps> = ({
       <div className="relative">
         <input
           className={clsx(
-            "h-[42px] rounded w-full border border-[#E2E2E2] font-WorkSans px-4 outline-none placeholder:text-sm text-black placeholder:text-gray-300 placeholder:font-light focus-within:border-gray-550 disabled:bg-gray-100",
-            hasError && "border-b-red-500",
+            "h-[36px] rounded w-full border border-[#E2E2E2] font-WorkSans px-4 outline-none placeholder:text-sm text-black placeholder:text-gray-300 placeholder:font-light focus-within:border-gray-550 disabled:bg-gray-100",
+            hasError && "border-red-500",
             className
           )}
           type={type}

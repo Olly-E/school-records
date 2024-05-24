@@ -1,6 +1,5 @@
 import React from "react";
 import clsx from "clsx";
-import { Button } from "./Button";
 
 interface CancelButtonProp {
   handleClick: () => void;
@@ -12,7 +11,7 @@ export const CancelButton = ({ handleClick, className }: CancelButtonProp) => {
       type="button"
       onClick={handleClick}
       className={clsx(
-        "flex items-center justify-center border-black-state border",
+        "flex items-center justify-center bg-black border",
         className
       )}
     >

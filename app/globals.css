@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@import url('./react-date-picker.css');
+@import url("react-phone-number-input/style.css");

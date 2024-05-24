@@ -35,13 +35,12 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <Tag
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       href={as === "link" ? href : undefined}
       className={clsx(
-        "rounded-full justify-center font-[600] whitespace-nowrap w-fit px-8 focus:outline-none py-3 disabled:cursor-not-allowed gap-2 disabled:opacity-70 cursor-pointer flex items-center gap transition-colors duration-100",
+        "rounded-md justify-center font-[600] whitespace-nowrap w-fit px-8 focus:outline-none py-3 disabled:cursor-not-allowed gap-2 disabled:opacity-70 cursor-pointer flex items-center gap transition-colors duration-100",
         variant === "primary" &&
-          "bg-orange-gradient text-white font-[600] text-white-state",
+          "bg-black text-white font-[600] text-white-state",
         variant === "outline" &&
           " bg-transparent flex items-center border-2 border-black justify-center",
         className
