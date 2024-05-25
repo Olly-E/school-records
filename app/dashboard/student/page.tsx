@@ -11,7 +11,7 @@ import { Avatar } from "@/app/components/elements/Avatar";
 import { Loader } from "@/app/components/elements/Loader";
 import Header from "@/app/features/layouts/Header";
 
-const Page = () => {
+const Student = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [studentData, setStudentData] = React.useState<
     AddStudentFormProps[] | null
@@ -93,4 +93,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Student;

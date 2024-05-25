@@ -39,13 +39,13 @@ const Page = () => {
         <div className="w-full h-full flex items-center px-6 justify-center">
           <div className="h-[300px] flex items-center gap-10">
             <div className="w-[200px] aspect-square min-w-[200px] bg-primary rounded-full flex flex-col items-center justify-center">
-              <p className="font-bold text-[46px]">{teachersData?.length}</p>
+              <p className="font-bold text-[46px]">{teachersData?.length || 0}</p>
               {teachersData && teachersData.length === 1
                 ? "Teacher"
                 : "Teachers"}
             </div>
-            <div className="w-[200px] aspect-square min-w-[200px] bg-primary rounded-full flex flex-col items-center justify-center">
-              <p className="font-bold text-[46px]">{studentData?.length}</p>
+            <div className="w-[200px] aspect-square min-w-[200px]  bg-primary rounded-full flex flex-col items-center justify-center">
+              <p className="font-bold text-[46px]">{studentData?.length || 0}</p>
               Total Student
             </div>
             <div className="w-[200px] aspect-square min-w-[200px] bg-primary rounded-full flex flex-col items-center justify-center">
