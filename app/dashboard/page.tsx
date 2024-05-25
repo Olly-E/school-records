@@ -50,7 +50,7 @@ const Page = () => {
             </div>
             <div className="w-[200px] aspect-square min-w-[200px] bg-primary rounded-full flex flex-col items-center justify-center">
               <p className="font-bold text-[46px]">
-                {studentData?.length ?? 0 + (teachersData?.length ?? 0)}
+                {(studentData?.length || 0) + (teachersData?.length || 0)}
               </p>
               Total Registered
             </div>
