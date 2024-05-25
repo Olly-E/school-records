@@ -1,16 +1,23 @@
-School Records Management App
-Introduction
-The School Records Management App is a simple, web-based application designed to help educational institutions manage and store information about teachers and students efficiently. Built with Next.js, this application allows users to add, store, and view teacher and student details directly from their browsers using local storage. It features a straightforward user interface with dedicated pages for both teachers and students, including modals for input forms and an overview page that displays total records.
+# School Records App
 
-Features
-Add Teachers and Students: Users can add new teacher or student information via a form in a modal dialog. Each entry requires specific details that are then stored in the browser's local storage.
-Overview Dashboard: A landing page that provides a quick summary of the total number of teachers and students currently stored in the system.
-Individual Detail Pages: Separate pages for teachers and students that display all the entered details for each group.
-Responsive Design: Accessible on various devices, ensuring functionality and ease of use across different platforms.
-Installation
-Prerequisites
-Before you begin, ensure you have the following installed:
+## Overview
+This application serves as a management system for recording and retrieving teacher and student details. It allows users to add new records through a user-friendly interface and stores this information in local storage. The app includes separate pages for teachers and students, and provides an overview page that displays the total count of all records.
 
-Node.js (12.x or later)
-npm (which comes with Node.js)
-Git
+## Features
+- **Add Teacher**: This feature allows users to add teacher details via a modal form.
+- **Add Student**: Similar to the Add Teacher feature, users can add student details via a modal form.
+- **Overview Page**: Displays the total number of teachers and students that have been saved.
+- **Individual Details Pages**: Separate pages for viewing lists of all teachers and all students.
+
+## Installation
+To set up this project locally, follow these steps:
+
+### Prerequisites
+- Node.js installed on your system
+- Git for cloning the repository
+
+### Steps
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/school-records.git
+   cd school-records
