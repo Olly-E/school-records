@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import Sidebar from "../features/layouts/Sidebar";
-import Header from "../features/layouts/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",

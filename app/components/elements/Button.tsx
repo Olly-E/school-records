@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import Link from "next/link";
 import React from "react";
 import clsx from "clsx";
@@ -35,7 +36,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <Tag
-      // @ts-ignore
+      // @ts-expect-error
       href={as === "link" ? href : undefined}
       className={clsx(
         "rounded-md justify-center font-[600] whitespace-nowrap w-fit px-8 focus:outline-none py-3 disabled:cursor-not-allowed gap-2 disabled:opacity-70 cursor-pointer flex items-center gap transition-colors duration-100",
