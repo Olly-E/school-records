@@ -2,13 +2,13 @@
 import { Personalcard } from "iconsax-react";
 import React from "react";
 
+import { getTeacherData } from "@/app/features/teachers/api/getTeacherData";
+import AddTeacherModal from "@/app/components/modals/AddTeacherModal";
+import { useComponentVisible } from "@/app/hooks/useComponentVisible";
+import { AddTeacherFormProps } from "@/app/features/teachers/types";
 import EmptyState from "@/app/components/elements/EmptyState";
 import { Avatar } from "@/app/components/elements/Avatar";
 import Header from "@/app/features/layouts/Header";
-import AddTeacherModal from "@/app/components/modals/AddTeacherModal";
-import { useComponentVisible } from "@/app/hooks/useComponentVisible";
-import { getTeacherData } from "@/app/features/teachers/api/getTeacherData";
-import { AddTeacherFormProps } from "@/app/features/teachers/types";
 
 const Page = () => {
   const [teachersData, setTeachersData] = React.useState<
