@@ -21,3 +21,12 @@ To set up this project locally, follow these steps:
    ```bash
    git clone https://github.com/yourusername/school-records.git
    cd school-records
+2. **Install dependencies**
+   ```bash
+	npm install
+3. **Run application**
+   ```bash
+	npm run dev
+
+## P.S
+The application has been redirected from the home to the dashboard page and will redirect immediately the app starts so if you'd like to disable this you'd have to delete the code from next.config.mjs
