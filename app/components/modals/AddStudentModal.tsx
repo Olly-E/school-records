@@ -68,7 +68,7 @@ const AddStudentModal = ({
         <div className="rounded  mx-auto bg-white-state">
           <div className="flex items-start justify-between border-b pb-4">
             <div>
-              <h3 className="font-bold text-[20px]">Add Student</h3>
+              <h3 className="font-bold text-[20px]">Add Atudent</h3>
               <p className="text-sm text-primary-200 mt-1">
                 Add Student details
               </p>
